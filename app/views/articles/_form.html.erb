@@ -8,24 +8,46 @@
     <%end%>
 </ul>
 <%end%>
-<%= form_for @article do |f|%>
 
-    <p>
-        <%= f.label :title%> <br>
-        <%= f.text_field :title%>
-    </p>
+<div class="row">
+    <div class ="col-md-12">
 
-    <p>
-        <%= f.label :description%> <br>
-        <%= f.text_area :description%>
-    </p>
+        <%= form_for @article do |f|%>
 
-    <p>
-        <%= f.submit%>
-    </p>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">
+                <%= f.label :title%>
+                
+                </label>
+
+            </div>
+
+            <div class="col-sm-8">
+                <%= f.text_field :title, class:"form-control",placeholder: "Title of article", autofocus: true%>
+            </div>
 
 
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">
+                <%= f.label :description%>
+                
+                </label>
 
-<%end%>
+            </div>
 
-<%= link_to "Back to articles listing", articles_path %>
+            <div class="col-sm-8">
+                <%= f.text_area :description, class:"form-control",placeholder: "Description of article", autofocus: true%>
+            </div>
+            
+            <div class="col-sm-8">
+                <%= f.submit%>            
+            </div>
+        
+
+        <%end%>
+        <div class=  "col-xs-4 col-xs-offset-4">
+        [ <%= link_to "Cancel request and return to articles listing", articles_path %> ]
+        </div>
+
+    </div>
+</div>
