@@ -1,13 +1,4 @@
-<% if @article.errors.any? %>
-<h2>The following errors prevented the article form being created</h2>
-<ul>
-    <% @article.errors.full_messages.each do |msg| %>
-    <li>
-    <%= msg %>
-    </li>
-    <%end%>
-</ul>
-<%end%>
+<%= render "shared/errors", obj: @article %>
 
 <div class="row">
     <div class ="col-md-12">
@@ -20,7 +11,7 @@
                 
                 </label>
 
-            </div>
+            </div> 
 
             <div class="col-sm-8">
                 <%= f.text_field :title, class:"form-control",placeholder: "Title of article", autofocus: true%>
