@@ -5,8 +5,11 @@
     <hr>
     <div class>
     <%= simple_format(@article.description) %>
+    <% if @article.categories.any? %>
+        <p> Categories: <%= render @article.categories %> </p>
+    <%end%>
     </div>
-
+    
     <div class="article-actions">
         <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
             <%= link_to "Edit this article", edit_article_path(@article), class:"btn btn-sm btn-primary"%> 

@@ -37,7 +37,7 @@
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li> <%= link_to "All Categories", categories_path , class:"dropdown-item" %> </li>
                 <% Category.all.each do |category|%>
-                  <li> <%= link_to "#{category.name}", categories_path(category), class:"dropdown-item" %> </li>
+                  <li> <%= link_to "#{category.name}", category_path(category), class:"dropdown-item" %> </li>
                 <%end%>
                 <% if logged_in? and current_user.admin?%>
                   <hr>
@@ -47,6 +47,10 @@
             </li>
 
             <%end%>
+
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+
+          <%= link_to "Search", category_path("#"), class:"btn btn-outline-success" %>
 
             
 
